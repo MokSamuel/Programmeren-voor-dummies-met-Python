@@ -1,0 +1,108 @@
+\chapter{Les 1: Basisgebruik Python}
+In de eerste les leren we op een simpele manier omgaan met Python. Onderwerpen die aan bod komen: rekenen met Python, het maken van eens script, datatypes, en if-statements. 
+
+Officiele Python tutorial: \href{https://docs.python.org/3/tutorial/introduction.html}{Basis}
+
+\section{Rekenen}
+Voordat we met het "echte werk" beginnen gebruiken we eerst de Shell om rekenwerk uit te voeren. Je kan je rekenwerk gewoon intypen in de shell, en als je dan op enter drukt wordt het uitgevoerd. Let op: bij Python wordt een punt gebruikt ipv een komma voor waardes onder de 1. 
+
+\textbf{A. Oefening rekenen}
+\begin{enumerate}[label=\textbf{A.\arabic*}]
+\item Reken de volgende vergelijking uit: $y = (2813*25) / (31091-34220*20)$
+\item Een macht verheffen gaat zo: a ** b. Reken uit: 25 tot de macht 32. 
+\item Bepaal de wortel van 382391. (als je niet weet hoe: kijk naar vorige opdracht!)
+\end{enumerate}
+
+Zoals je wellicht zal zien geeft Python antwoorden met veel decimalen. Deze kunnen we afronden met de de functie \textbf{round}. Functies worden in Python gebruikt voor bijna alle bewerkingen. Een functie bestaat uit een aanhef en argumenten, bij round bijvoorbeeld: round(a,b). A is het getal of berekening die je wil afronden, en b het aantal decimalen wat je wil zien. 
+
+\textbf{B. Oefening afronden}
+\begin{enumerate}[label=\textbf{B.\arabic*}]
+\item Voer het volgende commando uit: $round((2813*25) / (31091-34220*20), 5)$. Verander vervolgens de laatste 5 in een ander getal. Wat gebeurt er?
+\item Voer oefening A2 en A3 nog een keer uit, maar rond alles automatisch af op 2 cijfers achter de komma.
+\end{enumerate}
+
+
+Voor oefening B2 moest je nu weer opnieuw je formule intypen (of knippen/plakken). Dit kan natuurlijk makkelijker! Vanaf nu gebruiken we de Shell (bijna) niet meer, maar gaan we Scripts schrijven.
+
+
+\section{Scripts \& datatypes}
+Een script is een bestandje waar Python-code instaat die je kan uitvoeren. Zo hoef je niet iedere keer opnieuw dingen in te typen, en kan je overzichtelijker werken met variabelen en functies. Een script laat nooit iets zien in de Shell, behalve als je dat expliciet aangeeft. Dat gaat met de functie \textbf{print}. Functies worden later in meer detail uitgelegd. In de oefening hieronder oefenen we hiermee.
+
+\textbf{C. Oefening scripts}
+\begin{enumerate}[label=\textbf{C.\arabic*}]
+\item Kopieer/plak de vergelijking van opdracht A.1 in het script (zie Fig.\ref{fig:pyzokaal}). Druk vervolgens op CTRL-E. Wat gebeurt er?
+\item Typ de volgende code op de regel onder de vergelijking in je script: print(y). Voer uit. Wat zie je?
+\item Verander print(y) in print(y+y). Voer uit. Verschijnt er wat je verwacht?
+\item Typ nu: print(hallo). Voer uit.
+\item Typ nu: print("hallo"). Voer uit.
+\item Typ nu: print("hallo" + " allemaal"). Voer uit.
+\item Typ nu: print("Het antwoord is " + y). Voer uit.
+\item Typ nu: print("Het antwoord is " + str(y)). Voer uit.
+\item Typ een \# aan het begin van een regel. Wat gebeurt er?
+\end{enumerate}
+
+Opdracht C.9 zorgt ervoor dat een regel uit je script niets doet. Het symbool \# markeert een regel code als commentaar. Python slaat deze regels over. Handig als je voor jezelf info in je script wil typen (bv waarom je iets hebt gedaan, etcetera). 
+
+Zoals je ziet krijg je foutmeldingen bij opdrachten C.4 en C.7. Dit komt omdat Python alleen iets kan printen (=laten zien) als het een gedefinieerde variabele is. De variabele hallo bestaat niet, dus kan hij er niets mee bij opdracht C.4. \\
+Bij opdracht C.5 heb je aanhalingstekens op hallo heengezet. Hiermee maak je aan Python duidelijk dat het je niet om een variabele gaat maar om een stuk text. Text heet in Python een \textit{string}. String betekent draad in het Engels, en het heet zo omdat een woord een draad (ketting) van individuele letters is. Een woord kan Python wel laten zien! \\
+Als je meerdere woorden achter elkaar wil plakken kan je dat doen door de woorden bij elkaar op te tellen, zoals je ziet in opdracht C.6. Je kan geen getallen bij woorden optellen, zoals je ziet in opdracht C.7. Door het getal om te zetten naar text met de functie \textbf{str} kan het wel! \\
+De verschillende soorten data noemen we \textit{datatypes}. De meest voorkomende: 
+
+\textbf{Basisdatatypes}
+\begin{itemize}
+\item \textbf{Integer (int)} - een getal zonder cijfers achter de komma.
+\item \textbf{Float (float)} - een getal met cijfers achter de komma.
+\item \textbf{String (str)} - een stuk text; een aaneenschakeling van chars
+\item \textbf{Boolean (bool)} - kan maar 2 waardes hebben: True of False. Kan worden vervangen door 1 en 0. 
+\item \textbf{List} - een lijst met data. Gaan we later meer mee doen!
+\end{itemize}
+
+Voor ieder datatype is er een functie om een getal/text om te zetten in een bepaald datatype. Die functies staan tussen haakjes. Als je dus bijvoorbeeld y=\textbf{float}(21.3) intypt maak je variabele y aan met datatype float en waarde 21.3. Je hoeft in Python vaak niet zelf aan te geven wat voor soort datatype je waardes zijn, in de meeste gevallen wordt dat vanzelf goed gedetecteerd.
+
+\section{Functies}
+
+Een functie is een opdracht die je aanroept in Python. Je hebt hier vorige les al mee gewerkt: zo is bijvoorbeeld \textbf{print()} een voorbeeld van een functie. Een functie heeft  \textit{input} (ook wel argument(en) genoemd) en \textit{output}. De input komt tussen de haakjes en heeft een vorm die afhangt van de functie. Zo moet je bij de functie \textbf{print()}  altijd een string (text) invoeren om af te beelden. Als je getallen wil laten afbeelden zal Python deze automatisch proberen om te zetten naar text. Print heeft geen directe output die je kan opslaan: hij voert direct het commando uit.
+
+Een voorbeeld van een functie met output is \textbf{random()}. Deze functie heeft geen input, alleen output. Als output geeft hij een komma-getal tussen de 0 en de 1. De output kan als volgt opslaan:
+\begin{lstlisting}[frame=single]
+y = random() 
+\end{lstlisting}
+y is nu dus een kommagetal tussen de 0 en de 1. 
+
+Een voorbeeld van een functie met zowel argumenten als output is de functie \textbf{input()}. Als je het programma uitvoert zal deze functie een vraag stellen aan de gebruiker (de vraag is het argument van de functie), en het gegeven antwoord wordt opgeslagen als output. Dat kan bijvoorbeeld zo:
+\begin{lstlisting}[frame=single]
+getal = input("Welk geheel getal moet ik opslaan? ")
+getal = int(getal)
+\end{lstlisting}
+
+Omdat het voor Python niet duidelijk is wat voor soort datatype het antwoord is moet je dan expliciet aangeven, zoals in de tweede regel is gedaan met de functie \textbf{int}. In de volgende les wordt uitgelegd hoe je je eigen functies kan maken.
+
+\section{If-statements}
+Officiele Python tutorial: \href{https://docs.python.org/3/tutorial/controlflow.html\#if-statements}{If-statements}
+
+Nu weten we hoe een script werkt en wat voor gegevens we erin kunnen plaatsen. Dit kan je echter ook (bijna) allemaal gewoon met een simpele rekenmachine; we hebben hier dus niet zo veel aan. De kracht van programmeren ligt in het automatiseren van beslissingen op basis van gegevens. Het eerste hulpmiddel wat we hiervoor gebruik is de functie \textbf{if}. Deze functie doet iets als er iets waar of niet waar is. 
+
+Een if-statement geef je in een specifieke vorm: \textbf{if} (conditie): \\
+Bij (conditie) kan je invullen wat je je afvraagt, als je bijvoorbeeld wilt weten of 15 groter is dan y: \textbf{15 > y}. Als je iets wil doen als dat juist \textit{niet} waar is kan je de functie \textbf{else:} of \textbf{elif} gebruiken. \textbf{elif} staat voor else if, vertaald: anders als. Hier kan je dan nog een conditie toevoegen om te testen.
+
+Een aantal voorbeelden van code vind je hieronder. Als je code kopieert als script in Pyzo zal je zien dat het foutmeldingen geeft: je moet de code exact overnemen, inclusie de spaties die voor sommige regels staan. Zonder deze spaties (in het Engels: indents) zal Python niet begrijpen wat je wil. Als je kopieert vanuit een PDF kan het zijn dat deze spaties niet meekomen. In het groen is commentaar opgenomen om uit te leggen wat iedere regel doet. 
+
+\lstinputlisting{script/voorbeeldif2.py}
+\lstinputlisting{script/voorbeeldif1.py}
+\lstinputlisting{script/voorbeeldif3.py}
+
+Je ziet nog twee nieuwe dingen in de voorbeelden staan. In het tweede voorbeeld wordt de functie \textbf{input} gebruikt. Bij input vraag je de gebruiker om... input. Als je de code draait krijg je de vraag/opdracht te zien die je als commando meegeeft aan de functie input. Alles wat de gebruiker intypt wordt opgeslagen als variabele, in dit geval als variabele x. Je ziet ook dat de functie \textbf{float} om de input heen staat, zodat de input van de gebruiker wordt opgeslagen als getal met cijfers achter de komma. Bij het gebruik van \textbf{input} moet je Python vertellen wat voor datatype je verwacht, anders kan je er niet goed verder mee werken. 
+
+Het andere nieuwe wat je ziet is bij het laatste voorbeeld waar de functie \textbf{import} wordt gebruikt. Import zorgt ervoor dat je nieuwe functies aan je programma kan toevoegen. Hier is het pakket \textit{pandas} geimporteerd, een pakket die ondersteuning voor databases toevoegt aan Python. Hier gaan we later meer mee werken. 
+
+\section{Opdrachten les 1: oefenen met input en if}
+Bij de uitwerkingen van deze opdrachten zijn soms alternatieve manieren weergegeven die het iets beter of efficienter doen, met gebruik van functies of technieken die je (nog) niet hebt geleerd. Het is geen ramp als je dat niet allemaal snapt of het anders hebt gedaan: als je programma maar werkt! De docent kan alle antwoorden toelichten indien gewenst. 
+
+\textbf{Les 1: Opdrachten}
+\begin{enumerate}[label=\textbf{1.\arabic*}]
+\item Maak een programma die vraagt om een letter en geef aan de gebruiker aan of dit een klinker of een medeklinker is. 
+\item Maak een programma die vraagt om een golflengte in nm en geef aan: de frequentie van deze straling, welke kleur die straling heeft, en welke energie de straling heeft in J. Als de straling buiten het zichtbare gebied valt geef je dat ook aan. 
+\item Maak een programma die om een getal vraagt met het commando \textbf{input} en geef aan de gebruiker aan of dit getal even of oneven is. Tip: gebruik de functie \textbf{\%} (deze heet modulo). Deze functie deelt het eerste getal door het tweede getal en geeft de rest terug. $10 \% 2$ geeft als antwoord 0, en $11 \% 2$ geeft als antwoord 1. 
+\item Maak een programma die de gebruiker vraagt om 3 termen: $a, b, c$ van een polynoom van de vorm $ax^2 + bx + c$ . Geef het aantal nulpunten en de bijbehorende x-waardes terug.
+\item Bonus: Modificeer de bovenstaande scripts met if-statements zodat ze een foutmelding geven als de gebruiker geen juiste invoer intypt. Denk bijvoorbeeld aan de situatie $a=0$ bij opgave 1.4. 
+\end{enumerate}

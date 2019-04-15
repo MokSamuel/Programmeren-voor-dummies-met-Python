@@ -1,0 +1,160 @@
+\chapter{Les 2: Functies maken, Lijsten en Loops}
+In deze les gaan we een flinke stap verder en gaan we dingen doen die lastig of tijdrovend zijn voor mensen, maar zo gepiept zijn als je het programmeert. De les begint met het schrijven van je eigen functies, gaat verder naar loops en het gebruik van lijst-datatypes. De les sluit af met het integreren van alle onderdelen tot nu toe.
+
+\section{Zelf functies maken}
+Officiele Python tutorial: \href{https://docs.python.org/3/tutorial/controlflow.html\#defining-functions}{Functions}
+
+In de vorige les heb je gebruik gemaakt van functies, en geleerd dat ze input/argumenten hebben, en een output. Je kan ook functies toevoegen aan Python, sterker nog, alle functies die in Python zitten zijn door anderen gemaakt. Je kan ook met gemak extra functies toevoegen aan je script. De eerste is via \textbf{import}, zoals ook uitgelegd in paragraaf 1.4. De tweede is om je eigen functies te definieren. In deze paragraaf wordt uitgelegd hoe. We beginnen weer met een voorbeeld van een simpele functie die twee getallen bij elkaar optelt:
+
+\lstinputlisting{script/voorbeeldFunctie.py}
+
+De eerste regel van een functie bevat de term \textbf{def}, gevolgd door de naam van de functie, gevold door de argumenten die je wil gebruiken, en wordt afgesloten met een dubbele punt. In dit geval heet de functie dus \textbf{telop} met twee argumenten (twee getallen die opgeteld moeten worden).
+In de regels eronder kan je wat gaan doen met de input; in dit geval tellen we ze bij elkaar op en slaan we het antwoord op in een nieuwe variabele \textit{output}. Een functie sluit je normaal af met de opdracht \textbf{return()}, waarbij je aangeeft wat de functie teruggeeft als antwoord. In dit geval dus de output (het opgetelde getal). Als je deze code in een script zet en uitvoert zal Python onthouden dat je een functie hebt gemaakt. Je kan hem nu gebruiken, bv in de shell als volgt:
+
+\begin{lstlisting}[frame=single]
+>>> telop(5,3)
+8
+\end{lstlisting}
+Je kan ook een speciale waarde aan je output geven: \textit{None}. Dit herkent Python als lege waarde (dat is dus iets anders als 0). 
+Het maken van functies is vooral handig als je bepaalde acties vaker uitvoert in een programma: dan hoef je niet iedere keer weer hetzelfde te gaan programmeren. Moet je bijvoorbeeld de nulpunten van een vergelijking willen weten kan je dat iedere keer helemaal uitschrijven, of een functie \textbf{vindNulpunt()} maken. Iets dergelijks kan je bijvoorbeeld doen voor opgave 1.4.
+
+\textbf{A. Oefening functies} \\
+Pak je script van opgave 1.4 er weer bij (waar je aan de hand van a, b, c de nulpunten van een polynoom bepaalde).
+\begin{enumerate}[label=\textbf{A.\arabic*}]
+\item Maak er nu een functie \textbf{vindNulpunt()} van. 
+\\Deze heeft 3 argumenten (a,b,c). Er zijn 3 mogelijkheden voor de output: 0, 1, of 2 nulpunten. We gaan eerst de functie zo maken dat hij 1 output geeft, later breiden we het uit. Schrijf de functie op zo'n manier dat hij het nulpunt bepaalt bij D=0, het antwoord \textit{None} geeft als D < 0, en bij D > 0 alleen het antwoord met +wortel. Als je er moeite mee hebt: vraag hulp! De uitwerking staat in de bijlage. 
+\end{enumerate}
+Je merkt dat het onhandig is dat je maar 1 antwoord kan geven. Daarvoor is een oplossing: het gebruik van een lijst.
+
+\section{Lijsten}
+Officiele Python tutorial: \href{https://docs.python.org/3/tutorial/datastructures.html
+}{Lijsten} \\
+Een lijst is in Python een soort datatype. In plaats van een getal of een woord is het een verzameling van andere datatypen. Lijsten worden erg veel gebruikt.
+
+Een lijst maak je door een set data gescheiden door komma's tussen blokhaken te zetten, bijvoorbeeld zo:
+\begin{lstlisting}[frame=single]
+>>> nummers = [1,2,3,4,5]\\
+>>> nummers
+[1, 2, 3, 4, 5]
+\end{lstlisting}
+Je kan de hele lijst dus aanroepen/printen door die variabele te gebruiken. Je kan ook een selectie maken uit de lijst of een individueel onderdeel van de lijst opvragen:
+\begin{lstlisting}[frame=single]
+>>> nummers[1]
+2
+>>> nummers[0]
+1
+>>> nummers[-1]
+5
+>>> nummers[-2]
+4
+\end{lstlisting}
+Een lijst begint bij element of index 0. Het eerste ding dat je in de lijst stopt staat dus op plekje 0. Door nummers[0] aan te roepen vraag je dus het eerste element uit de lijst op. Bij het gebruik van een negatieve index vraag je getallen aan de achterkant van de lijst op: nummers[-1] is het laatste element uit de lijst, nummers[-2] het een-na-laatste, etcetera.
+
+Het is ook mogelijk een deel van de lijst op te vragen. Dit heet een \textit{slice} (een stukje). Je krijg dan als antwoord een nieuwe lijst. Dit gaat met dubbele punten:
+
+\begin{lstlisting}[frame=single]
+>>> nummers[0:2]
+[1,2]
+
+>>> nummers[:2]
+[1,2]
+
+>>> nummers[2:]
+[3,4,5]
+\end{lstlisting}
+
+Het werken met slices heeft dus twee argumenten: het begin en het eind, met een dubbele punt ertussen. Als je het eerste getal weglaat zal Python daarvoor zelf standaard 0 invullen, en als je het tweede getal weglaat zal Python daarvoor standaard het laatste element voor kiezen. 
+
+Nu we weten hoe we met lijsten werken kunnen we onze functie vindNulpunt verder aanpassen zodat het 0, 1 of 2 nulpunten kan geven als antwoord.
+
+\textbf{B. Oefening functie + lijst}
+\begin{enumerate}[label=\textbf{B.\arabic*}]
+\item Pas je functie vindNulpunt aan zodat het een lijst teruggeeft met de nulpunten. Bij geen nulpunten moet je nog steeds \textit{None} teruggeven.
+\end{enumerate}
+
+Er zijn een aantal standaardfuncties die je op een lijst kan uitvoeren. Een veelgebruikte functie is \textbf{lijst.append(data)}, die achteraan de lijst data toevoegt. De tegenhanger is \textbf{lijst.pop()} die het laatste element weer verwijdert en als output het verwijderde item geeft. Als je de eerste X elementen wil verwijderen kan je het commando \textbf{del lijst[:x]} gebruiken. 
+Een voorbeeld:
+
+\begin{lstlisting}[frame=single]
+>>> lijst=[1,2,3]
+
+>>> lijst
+[1, 2, 3]
+
+>>> lijst.append(4)
+
+>>> lijst
+[1, 2, 3, 4]
+
+>>> lijst.pop()
+4
+
+>>> lijst
+[1, 2, 3]
+\end{lstlisting}
+
+\section{Loops}
+Officiele Python tutorial: \href{https://docs.python.org/3/tutorial/controlflow.html\#for-statements}{For-statements}\\
+Loops (in het NL: lussen) zijn zeer belangrijke manieren om je programma vorm te geven. Ze vormen vaak de basis van veel programma's. Iedere keer dat je een lijst doorloopt of als je een functie wil uitvoeren op een set gegevens gebruik je een loop. De meest gebruikte vorm is een \textbf{for-loop}, en we besteden in dit onderdeel ook aandacht aan een \textbf{while-loop}. Daar beginnen we mee, want die is iets simpeler om te gebruiken.
+
+Een \textbf{while-loop} is een commando die iets uitvoert zolang iets waar is. Een voorbeeld (draai de functie en kijk wat er gebeurt).
+
+\lstinputlisting{script/voorbeeldwhile.py}
+
+\textbf{C. Oefening while (antwoorden in bijlage)}
+\begin{enumerate}[label=\textbf{C.\arabic*}]
+\item Maak een while-loop die de getallen 1 t/m 10 afdrukt.
+\item Maak een while-loop die een een getal \textit{a} tussen de 1 en de 100 vraagt en vervolgens 100-a uitrekent totdat het antwoord 0 of lager is, en aangeeft hoe vaak de loop heeft gedraaid.  
+\end{enumerate}
+
+Een andere vorm van loops zijn \textbf{for-loops}. Hier geef je een \textit{range} aan waar de loop tussen gaat lopen. Wederom is dit het meest makkelijk uit te leggen aan de hand van een (simpel) voorbeeld:
+\lstinputlisting{script/voorbeeldFor.py}
+
+en dit script geeft de volgende output:
+\begin{lstlisting}[frame=single]
+>>> (executing file "voorbeeldFor.py")
+Dit is de 0de keer!
+Dit is de 1de keer!
+Dit is de 2de keer!
+Dit is de 3de keer!
+Dit is de 4de keer!
+\end{lstlisting}
+
+Een for-loop heeft 2 belangrijke componenten: de iterator (in dit geval i) en de range (bereik) van de loop. De iterator is een getal die telkens met een bepaalde stap wordt opgehoogd (standaard 1), en loopt dus met het bereik wat je aangeeft. Het bereik kan je invoeren zoals in het voorbeeld staat met de functie \textbf{range(nummerstart, nummereind, stapgrootte)}. In dit geval was het nummerstart niet ingevuld, en wordt er standaard 0 gekozen. nummereind is gelijk aan 5: de loop wordt dus 5x uitgevoerd. De stapgrootte is ook leeggelaten, en dan is het standaard gelijk aan 1. De iterator begint bij 0 en loopt dus 5x, waarmee bovenstaande output wordt gecreeerd. 
+
+Het is ook mogelijk om loops binnen in loops te zetten, of if-statements in een loop te plaatsen, etcetera. Daar gaan we straks mee oefenen.
+
+
+\textbf{D. Oefeningen for-loops (antwoorden in bijlage)}
+\begin{enumerate}[label=\textbf{D.\arabic*}]
+\item Maak een for-loop die de getallen van 1 t/m 40 bij elkaar optelt.
+\item Maak een for-loop die de eerste 20 getallen van de tafel van 21 genereert in een lijst.
+\item Gebruik for-loops om een driehoek van getallen te genereren. Vraag om het aantal rijen wat de gebruiker wil en maak vervolgens de structuur als volgt:\begin{lstlisting}1 
+12 
+123 
+1234 
+... etc. \end{lstlisting}
+\end{enumerate}
+
+\section{Opdrachten les 2: loops, functies en Lijsten}
+\textbf{1. Priemgetallen}
+\begin{enumerate}[label=\textbf{1.\alph*}]
+\item Schrijf een script die een getal vraagt en vervolgens laat weten of dit een priemgetal is (dus alleen deelbaar door 1 en zichzelf) of niet. Tip: gebruik de modulo functie, \%. 
+\item Pas dit script aan zodat het een functie is die je vanuit een ander programma kan aanroepen en een boolean (true/false) teruggeeft.
+\item Pas de output van de functie aan: geef ook aan door welk getal het gedeeld kan worden als het geen priemgetal is. Geef dit mee als een integer. 
+\item \textbf{Bonus:} Maak de functie zo efficient dat het getallen van 10 decimalen lang kan testen binnen enkele seconden, en laat het programma aangeven hoelang het erover deed om een antwoord te geven. Tip: gebruik het pakket \textit{datetime} en de functie \textbf{datetime.now()}. 
+\end{enumerate}
+\textbf{2. Gokken}
+\begin{enumerate}[label=\textbf{2.\alph*}]
+\item Raad het getal! Schrijf een programma die vraagt om een gok van de gebruiker. Geef aan of de gok juist is of niet en herhaal net zolang tot de gok goed is.
+\item Laat het programma aangeven of het getal hoger/lager moet zijn.
+\item Laat het programma een willekeurig getal tussen de 0 en de 100 genereren om te gokken. Gebruik uit het pakket \textit{random} de functie \textbf{random.random()}.
+\item Geef aan het eind aan hoeveel pogingen er zijn gedaan en geef een mooi geformatteerde output. 
+\end{enumerate}
+\textbf{3. Fibbonacci-reeks}
+\begin{enumerate}[label=\textbf{3.\alph*}]
+\item Maak een programma die de eerste 10 getallen van de Fibbonacci-reeks weergeeft.
+\item Maak een programma die de eerste X getallen van de Fibbonacci-reeks weergeeft, waarbij X wordt aangegeven door de gebruiker.
+\item Maak een functie met X als argument die de eerste X Fibbonacci-getallen geeft in de vorm van een lijst.
+\item \textbf{Bonus:} Pas de functie aan zodat je niet alleen de eerste X getallen kan opvragen maar begint op plek X en eindigt op plek Y. 
+\end{enumerate}

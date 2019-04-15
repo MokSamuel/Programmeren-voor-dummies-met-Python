@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt,oneside]{book}
+
+\usepackage[DIV=15,headinclude=true,footinclude=false]{typearea}
+\usepackage{fullpage} % Package to use full page
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[bitstream-charter]{mathdesign}
+\renewcommand*\contentsname{Inhoud}
+
+%appendix usage
+\usepackage[page]{appendix}
+
+\usepackage{fancyvrb}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    upquote=true
+    frame=single
+}
+\let\oldlstinputlisting\lstinputlisting
+% \lstinputlisting always have frame
+\renewcommand{\lstinputlisting}[2][]{\oldlstinputlisting[frame=single]{#2}}
+
+\lstset{basicstyle = \ttfamily,columns=fullflexible}
+
+\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}[\titlerule]
+\titleformat{\section}{\normalfont\Large}{\thesection.}{16pt}{\Large}
+\titleformat{\subsection}{\normalfont\large}{\thesubsection.}{15pt}{\large}
+
+\title{Programmeren voor dummies met Python}
+\author{Samuel Mok, docent Chemie, \href{s.mok@saxion.nl}{\textsf{s.mok@saxion.nl}}}
+\date{Studiejaar 2018/2019}
+
+
+
+\end{center}
+\begin{document}
+\lstset{language=python}
+\lstset{style=mystyle}
+
+\maketitle
+\tableofcontents
+
+\input{intro}
+\input{les1}
+\input{les2}
+\input{les3}
+\input{les4}
+\begin{appendices}
+\input{antwoorden}
+\end{appendices}
+
+
+
+
+\end{document}
