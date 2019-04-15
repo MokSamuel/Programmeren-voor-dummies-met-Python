@@ -33,6 +33,9 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+\newcommand\PrevYear{%
+   \advance\year by -1 \the\year\advance\year by 1}
+
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
@@ -65,7 +68,7 @@
 
 \title{Programmeren voor dummies met Python}
 \author{Samuel Mok, docent Chemie, \href{s.mok@saxion.nl}{\textsf{s.mok@saxion.nl}}}
-\date{Studiejaar 2018/2019}
+\date{Studiejaar \PrevYear/\the\year}
 
 
 
