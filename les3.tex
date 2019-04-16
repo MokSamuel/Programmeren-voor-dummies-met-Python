@@ -285,7 +285,7 @@ Stap 1 is het importeren van de data:
 4  CO2;"1995";"mln kg";"180590";"17230";"7750";"2... 
 \end{lstlisting}
 
-Zoals je kan zien is het niet helemaal goed gegaan, dus zullen we aller eerst de data wat moeten opschonen.
+Zoals je kan zien is het niet helemaal goed gegaan, dus zullen we eerst de data wat moeten opschonen.
 
 \begin{lstlisting}[frame=single]
 >>> pd_uitstoot = pd.read_csv("C:/Emissies_naar_lucht_op_Nederlands_grondgebied__totalen_11112018_170037.csv", skiprows = 3, sep = ";")
@@ -327,7 +327,7 @@ Nu we de data in een pandas DataFrame hebben staan kunnen we de data opschonen. 
 >>> pd_uitstoot = pd_uitstoot.dropna()
 \end{lstlisting}
 
-Wanneer we de uitstoot van railverkeer en luchtvaart met elkaar willen vergelijken kunnen we deze op verschillende manierin in een plot weergeven, hieronder staat er één.
+Wanneer we de uitstoot van railverkeer en luchtvaart met elkaar willen vergelijken kunnen we deze op verschillende manieren in een plot weergeven. Hieronder een voorbeeld:
 
 \begin{lstlisting}[frame=single]
 >>> pd_uitstoot["Perioden"][8] = 2017
