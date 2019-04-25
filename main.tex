@@ -1,28 +1,40 @@
 \documentclass[a4paper,12pt,oneside]{book}
 
-\usepackage[DIV=15,headinclude=true,footinclude=false]{typearea}
+%-----------------------
+%PACKAGES
+%-----------------------
+
+\usepackage[DIV=15,headinclude=true,footinclude=false]{typearea} %better layout
 \usepackage{fullpage} % Package to use full page
 \usepackage{parskip} % Package to tweak paragraph skipping
 \usepackage{tikz} % Package for drawing
-\usepackage{amsmath}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{color}
-\usepackage{hyperref}
-\usepackage[T1]{fontenc}
-\usepackage[bitstream-charter]{mathdesign}
-\renewcommand*\contentsname{Inhoud}
+\usepackage{amsmath} %display math
+\usepackage{hyperref} %hyperlinks in text
+\usepackage{listings} %show formatted python code
+\usepackage{color} %duh
+\usepackage[T1]{fontenc} %better fonts
+\usepackage[bitstream-charter]{mathdesign} %math-text in text
+\usepackage{ccicons} %creative commons license stuff
 
-\usepackage{cclicenses}
+\usepackage[page]{appendix} %appendix usage
+\usepackage{fancyvrb} %for verbatim usage; no longer used in this document?
+\usepackage{enumitem} %better control of lists
+\usepackage{titlesec} %alternative section titles
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype} %beter fonts
 
-%appendix usage
-\usepackage[page]{appendix}
+\usepackage[type={CC},modifier={by-nc},version={4.0}]{doclicense}
 
-\usepackage{fancyvrb}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+%----------------------
+%SETUP
+%----------------------
 
+\renewcommand*\contentsname{Inhoud} %NL name for contents
+
+%automatic studyyear calculation for front page
+\newcommand\PrevYear{%
+   \advance\year by -1 \the\year\advance\year by 1}
+
+%links
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -30,14 +42,13 @@
     urlcolor=blue,
 }
 
+%colors for code display
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-\newcommand\PrevYear{%
-   \advance\year by -1 \the\year\advance\year by 1}
-
+%code display settings
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
@@ -58,31 +69,47 @@
     upquote=true
     frame=single
 }
-\let\oldlstinputlisting\lstinputlisting
-% \lstinputlisting always have frame
-\renewcommand{\lstinputlisting}[2][]{\oldlstinputlisting[frame=single]{#2}}
 
+% \lstinputlisting settings / always have frame
+\let\oldlstinputlisting\lstinputlisting
+\renewcommand{\lstinputlisting}[2][]{\oldlstinputlisting[frame=single]{#2}}
 \lstset{basicstyle = \ttfamily,columns=fullflexible}
 
+%chapter/section title settings
 \titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}[\titlerule]
 \titleformat{\section}{\normalfont\Large}{\thesection.}{16pt}{\Large}
 \titleformat{\subsection}{\normalfont\large}{\thesubsection.}{15pt}{\large}
 
-\title{Programmeren voor dummies met Python \\ 
-\includegraphics[width=0.2\textwidth]{img/by-nc.png}}
+%----------------------
+%FRONT PAGE
+%----------------------
+
+\title{Programmeren voor dummies met Python}
 \author{Samuel Mok, docent Chemie, \href{s.mok@saxion.nl}{\textsf{s.mok@saxion.nl}}}
 \date{Studiejaar \PrevYear/\the\year}
 
+%---------------------
+%CONTENTS
+%---------------------
 
 
-\end{center}
 \begin{document}
+
 \lstset{language=python}
 \lstset{style=mystyle}
 
 \maketitle
-\tableofcontents
 
+Dit document is geschreven door Samuel Mok, MSc. voor de opleiding Chemie van de Saxion University of Applied Science ter behoeve van het vak "Programmeren voor Dummies met Python". 
+
+
+Dit dictaat heeft een CC4-BY-NC licentie (zie hieronder) en is open-source beschikbaar. Dit dictaat is geschreven in de taal \LaTeX\ in de editor \href{https://www.overleaf.com}{Overleaf}. De source code is te vinden op de volgende publieke Github repository: \href{https://github.com/MokSamuel/Programmeren-voor-dummies-met-Python}{https://github.com/MokSamuel/Programmeren-voor-dummies-met-Python}.
+
+
+\doclicenseThis
+
+Met dank aan \href{https://almarklein.org/}{Almar Klein} voor het ontwikkelen van Pyzo en een korte cursus, en \href{https://www.linkedin.com/in/emma-diederiks-75a3b166}{Emma Diederiks} voor het helpen met maken van materiaal voor dit dictaat.
+\tableofcontents
 \input{intro}
 \input{les1}
 \input{les2}
@@ -91,8 +118,5 @@
 \begin{appendices}
 \input{antwoorden}
 \end{appendices}
-
-
-
 
 \end{document}

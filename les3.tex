@@ -1,7 +1,8 @@
 \chapter{Les 3: Data importeren en verwerken}
 
-
 Dit hoofdstuk zal ingaan op het importeren van gegevens uit bijvoorbeeld een excelbestand om daar een bewerking op los te laten / dingen mee te doen. Denk bijvoorbeeld aan het automatisch maken van een kalibratiecurve aan de hand van een reeks meetgegevens, en het daarmee uitrekenen van concentratie inclusief de juiste foutmarges.
+
+Noot: Er zijn geen losse "eind"opdrachten voor deze les, gebruik de tijd voor de eindopdracht en het oefenen van de stof van afgelopen weken. 
 
 Voor het importeren van data gebruiken we het pakket \textbf{pandas}. Dit staat voor \textbf{pan}el \textbf{da}ta\textbf{s}. Dit is een pakket die ervoor zorgt dat je een soort van database kan beheren in Python, zoals je wellicht mee bekend bent vanuit SQL. Pandas werkt samen met twee andere krachtige pakketten voor data-verwerking en plotten: \textbf{NumPy} en \textbf{Matplotlib}.\\ \textbf{NumPy} is een pakket waarmee multi-dimensionale arrays en matrices gemaakt kunnen worden en bevat ook fucties om hier berekeningen mee uit te voeren. \\
 \textbf{Matplotlib} is een pakket waarmee je jouw data kan plotten in onder andere scatter plots, line plots en 3D plots.
@@ -90,7 +91,7 @@ Een andere optie is een dictionary opgeven. \href{https://docs.python.org/2/tuto
 Je ziet een aantal opvallende dingen. Zo heeft hij de 1e regel geimporteerd als namen van de kolommen (dat willen we graag!), is de eerste regel met data genummerd als regel 0 (net zoals met lijsten!) en zie je dat lege vakken worden gevuld met de text NaN. NaN staat voor "not a number" (=geen getal), en deze vakken zullen dus over worden geslagen bij berekeningen.
 Een DataFrame kan meerdere typen data bevatten zoals, text, integers, floats en ook lege plekken, zoals je hierboven ook al hebt gezien. DataFrames zijn altijd 2D, dat wil zeggen dat ze altijd rijen en kolommen bevatten.
 
-\subsection{Voorbeeld dataverwerking - Gamescores}
+\section{Voorbeeld dataverwerking - Gamescores}
 Noot: De complete tutorial vind je \href{https://www.dataquest.io/blog/pandas-python-tutorial/}{hier}, in het Engels, met plaatjes en extra uitleg. Hieronder een verkorte versie in het Nederlands. Voer de commando's zelf uit in Python om de output te zien. 
 
 In dit voorbeeld gebruiken we een databestand die je hier kan downloaden: \href{http://www.sharecsv.com/s/3397aa3f9cf0cf20ae6c1428a32bfc07/ign.csv}{Klik!} 
@@ -387,5 +388,4 @@ Met labels komt het de grafiek er dan uit te zien als Fig.~\ref{fig:matplotlib_s
 \item Meer oefeningen vind je \href{https://www.w3resource.com/graphics/matplotlib/}{hier!}
 \end{enumerate}
 
-\section{Opdrachten les 3: Pandas, NumPy en Matplotlib}
-Geen losse opdrachten voor deze les, gebruik de tijd voor de eindopdracht en het oefenen van de stof van afgelopen weken. 
+
