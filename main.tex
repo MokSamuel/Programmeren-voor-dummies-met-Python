@@ -6,6 +6,7 @@
 
 \usepackage[DIV=15,headinclude=true,footinclude=false]{typearea} %better layout
 \usepackage{fullpage} % Package to use full page
+\usepackage[table,xcdraw,dvipsnames]{xcolor} %meer kleurtjes
 \usepackage{parskip} % Package to tweak paragraph skipping
 \usepackage{tikz} % Package for drawing
 \usepackage{amsmath} %display math
@@ -29,6 +30,7 @@
 %----------------------
 
 \renewcommand*\contentsname{Inhoud} %NL name for contents
+\definecolor{saxion}{RGB}{0,156,130} %saxion-groen
 
 %automatic studyyear calculation for front page
 \newcommand\PrevYear{%
@@ -37,9 +39,9 @@
 %links
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
+    linkcolor=saxion,
     filecolor=magenta,      
-    urlcolor=blue,
+    urlcolor=saxion,
 }
 
 %colors for code display
@@ -76,9 +78,9 @@
 \lstset{basicstyle = \ttfamily,columns=fullflexible}
 
 %chapter/section title settings
-\titleformat{\chapter}{\normalfont\huge}{\thechapter.}{20pt}{\huge}[\titlerule]
-\titleformat{\section}{\normalfont\Large}{\thesection.}{16pt}{\Large}
-\titleformat{\subsection}{\normalfont\large}{\thesubsection.}{15pt}{\large}
+\titleformat{\chapter}{\normalfont\huge\color{saxion}}{\thechapter.}{20pt}{\huge}[\titlerule]
+\titleformat{\section}{\normalfont\Large\color{saxion}}{\thesection.}{16pt}{\Large}
+\titleformat{\subsection}{\normalfont\large\color{saxion}}{\thesubsection.}{15pt}{\large}
 
 %----------------------
 %FRONT PAGE
@@ -100,7 +102,7 @@
 
 \maketitle
 
-Dit document is geschreven door Samuel Mok, MSc. voor de opleiding Chemie van de Saxion University of Applied Science ter behoeve van het vak "Programmeren voor Dummies met Python". 
+Dit document is geschreven door Samuel Mok, MSc. voor de opleiding Chemie van de Saxion University of Applied Science ter behoeve van het vak "Dataverwerking". 
 
 
 Dit dictaat heeft een CC4-BY-NC licentie (zie hieronder) en is open-source beschikbaar. Dit dictaat is geschreven in de taal \LaTeX\ in de editor \href{https://www.overleaf.com}{Overleaf}. De source code is te vinden op de volgende publieke Github repository: \href{https://github.com/MokSamuel/Programmeren-voor-dummies-met-Python}{https://github.com/MokSamuel/Programmeren-voor-dummies-met-Python}.
